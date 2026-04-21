@@ -1,9 +1,6 @@
 (test) C:\Users\tuana\Lab14-AI-Evaluation-Benchmarking>python main.py
-🚀 Khởi động Benchmark cho Agent_V1_Base...
-🚀 Khởi động Benchmark cho Agent_V2_Optimized...
-
 📊 --- KẾT QUẢ SO SÁNH (REGRESSION) ---
-V1 Score: 4.215686274509805
-V2 Score: 4.307189542483661
-Delta: +0.09
+V1 Score: 3.4052287581699345
+V2 Score: 3.7287581699346397
+Delta: +0.32
 ✅ QUYẾT ĐỊNH: CHẤP NHẬN BẢN CẬP NHẬT (APPROVE)

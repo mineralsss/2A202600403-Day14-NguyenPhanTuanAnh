@@ -60,13 +60,24 @@ Báo cáo 5 Whys phải chỉ ra được lỗi nằm ở đâu: Ingestion pipel
 # 1. Cài đặt dependencies
 pip install -r requirements.txt
 
-# 2. Tạo Golden Dataset (chạy trước khi benchmark)
+# 2. tao file .env (Padwan API obtainable at https://pawan.krd/)
+#Windows
+copy environment_examples .env
+#Linux
+cp environment_examples .env    
+
+# 3. Tạo Golden Dataset (chạy trước khi benchmark)
 python data/synthetic_gen.py
 
-# 3. Chạy Benchmark & tạo reports
+
+# 4. chunking 
+python engine/chunking.py
+
+
+# 5. Chạy Benchmark & tạo reports
 python main.py
 
-# 4. Kiểm tra định dạng trước khi nộp
+# 6. Kiểm tra định dạng trước khi nộp
 python check_lab.py
 ```
 

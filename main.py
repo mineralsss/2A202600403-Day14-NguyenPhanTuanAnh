@@ -75,9 +75,18 @@ async def run_benchmark(version, agent=None):
     _, summary = await run_benchmark_with_results(version, agent)
     return summary
 
+# Set to True to use local Qwen3.5-4B-Base pipeline instead of OpenAI for V1
+USE_QWEN = True
+
 async def main():
-    # V1: baseline — minimax/minimax-m2.5 via OpenRouter, top_k=2
-    agent_v1 = MainAgent(top_k=2, model_name="z-ai/glm-4.5-air:free", openrouter=True)
+    # V1: baseline
+    if USE_QWEN:
+        # Qwen3.5-4B-Base local pipeline with Qwen embeddings
+        print("🧠 Using Qwen3.5-4B-Base pipeline for V1...")
+        agent_v1 = MainAgent(top_k=2, use_qwen=True)
+    else:
+        # OpenRouter cloud model
+        agent_v1 = MainAgent(top_k=2, model_name="z-ai/glm-4.5-air:free", openrouter=True)
     v1_summary = await run_benchmark("Agent_V1_Base", agent_v1)
     
     # V2: improved — gpt-4o-mini, top_k=3, better prompt with citation instructions
